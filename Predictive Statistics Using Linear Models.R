@@ -209,6 +209,13 @@ summary(fit)$coefficients[1,1]
   Warning: Ignoring unknown parameters: check_overlap
   Warning: Ignoring unknown parameters: check_overlap
 
-  > In Notes 
-  
+# An alternate way to add our new sites for prediction based on statology. My method was a little more complex than this and I think inefficient
+#define new sites 
+newsite1 <- data.frame(x=c(206.4, 2171.1))
+newsite1 <- data.frame(x=c(259.9, 2751.2))
+
+#use the fitted model to predict the value for the new observation
+predict(silverlm, newdata = newsite1)
+predict(silverlm, newdata = newsite2)
+
   
