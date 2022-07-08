@@ -1,4 +1,3 @@
-#Q1
 setwd("~/Documents/BIOMETRY/week10")
 coffee <-round(runif(200, 180, 300),1)
 tea <-round(runif(200, 2130, 3050), 1)
@@ -23,7 +22,6 @@ num.seeds         1.0000000         0.6981271 0.7993179
 days.without.rain 0.6981271         1.0000000 0.1281271
 elevation         0.7993179         0.1281271 1.0000000
 
-#Q2
 silverlm <- lm(num.seeds ~ days.without.rain + elevation , data = dat.Q1)
 plot(silverlm)
 Hit <Return> to see next plot: 
@@ -109,7 +107,7 @@ summary(fit)$coefficients[1,1]
   
   summary(fit)$coefficients[2,1]
 
-#Q4
+
   s.dat <-dat.Q1[order(dat.Q1$num.seeds),]
   new.sites <-rbind.data.frame(s.dat[sample(1:10, 1),2:3],
                                  +                              s.dat[sample(150:185, 1),2:3])
@@ -118,7 +116,7 @@ summary(fit)$coefficients[1,1]
   days.without.rain elevation
   site.1             206.4    2171.1
   site.2             259.9    2751.2
-#Q5
+
   names(summary(silverlm))
   [1] "call"          "terms"         "residuals"     "coefficients"  "aliased"       "sigma"         "df"           
   [8] "r.squared"     "adj.r.squared" "fstatistic"    "cov.unscaled" 
@@ -138,7 +136,7 @@ summary(fit)$coefficients[1,1]
   site2 <- (1.836*259.9) + (0.2896612*2751.2) + -966.0727063
   site2
   [1] 308.0196
-  #Q6
+
   prediction <- predict.lm(silverlm, new.sites, level = 0.95, type = c('response') )
   prediction
   site.1    site.2 
@@ -184,7 +182,7 @@ summary(fit)$coefficients[1,1]
   200    252.00000             266.1    2131.4
   site.1  41.84254             206.4    2171.1
   site.2 308.12210             259.9    2751.2
-  #Q7P1
+
   ggplot(dat.Q1prediction, aes(x=days.without.rain, y=num.seeds, color='red')) + geom_point(size=2, shape=23) + geom_smooth(method=lm) + labs(title = "                                                                           Number of Seeds vs Days without Rain") + stat_ellipse()
   tingwei <- ggplot(dat.Q1prediction, aes(x=days.without.rain, y=num.seeds, color='red')) + geom_point(size=2, shape=23) + geom_smooth(method=lm) + labs(title = "                                                                           Number of Seeds vs Days without Rain") + stat_ellipse() + geom_text()
   tingwei <- ggplot(dat.Q1prediction, aes(x=days.without.rain, y=num.seeds, color='red', label = num.seeds)) + geom_point(size=2, shape=23) + geom_smooth(method=lm) + labs(title = "                                                                           Number of Seeds vs Days without Rain") + stat_ellipse() + geom_text()
@@ -204,13 +202,13 @@ summary(fit)$coefficients[1,1]
   tingwei + geom_label(x=206.4, y=41.825372760865, label='site.1', color='red', size = 6, check_overlap = T) + geom_label(x=259.9, y=308.122102384419, label='site.2', color='green', size = 6, check_overlap = T)
   Warning: Ignoring unknown parameters: check_overlap
   Warning: Ignoring unknown parameters: check_overlap
-  #Q7P2
+
   ggplot(dat.Q1prediction, aes(x=elevation, y=num.seeds)) + geom_point(size=2, shape=25) + geom_smooth(method=lm) + labs(title = "                                                                           Number of Seeds vs elevation") + stat_ellipse()
   tingwei2 <- ggplot(dat.Q1prediction, aes(x=elevation, y=num.seeds)) + geom_point(size=2, shape=25) + geom_smooth(method=lm) + labs(title = "                                                                           Number of Seeds vs elevation") + stat_ellipse()
   tingwei2 + geom_label(x=2171.1, y=41.825372760865, label='site.1', color='red', size = 6, check_overlap = T) + geom_label(x=2751.2, y=308.122102384419, label='site.2', color='green', size = 6, check_overlap = T)
   Warning: Ignoring unknown parameters: check_overlap
   Warning: Ignoring unknown parameters: check_overlap
-  #Q8
+
   > In Notes 
   
   
